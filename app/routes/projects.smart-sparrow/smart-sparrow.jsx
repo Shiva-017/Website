@@ -19,12 +19,15 @@ import imageSprDesignSystemLight from '~/assets/spr-design-system-light.png';
 import imageSprLessonBuilderDarkLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
 import imageSprLessonBuilderDarkPlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
 import imageSprLessonBuilderDark from '~/assets/spr-lesson-builder-dark.jpg';
+import panoramaEd from '~/assets/panoramaEd.png';
+import collegeCompare from '~/assets/collegecompare.png';
 import imageSprLessonBuilderLightLarge from '~/assets/spr-lesson-builder-light-large.jpg';
 import imageSprLessonBuilderLightPlaceholder from '~/assets/spr-lesson-builder-light-placeholder.jpg';
 import imageSprLessonBuilderLight from '~/assets/spr-lesson-builder-light.jpg';
 import videoSprMotionLarge from '~/assets/spr-motion-large.mp4';
 import videoSprMotionPlaceholder from '~/assets/spr-motion-placeholder.jpg';
 import videoSprMotion from '~/assets/spr-motion.mp4';
+import liveChat from '~/assets/livechat.gif';
 import imageSprSchema1DarkLarge from '~/assets/spr-schema-1-dark-large.png';
 import imageSprSchema1DarkPlaceholder from '~/assets/spr-schema-1-dark-placeholder.png';
 import imageSprSchema1Dark from '~/assets/spr-schema-1-dark.png';
@@ -64,20 +67,21 @@ import { baseMeta } from '~/utils/meta';
 import { Suspense, lazy, useMemo } from 'react';
 import { media } from '~/utils/style';
 import styles from './smart-sparrow.module.css';
+import { useRef, useEffect } from 'react';
 
 const Earth = lazy(() => import('./earth').then(module => ({ default: module.Earth })));
 const EarthSection = lazy(() =>
   import('./earth').then(module => ({ default: module.EarthSection }))
 );
 
-const title = 'Designing the future of education';
+const title = 'Shaping the Future of College Admissions';
 const description =
-  'I worked as the design lead on a major iteration of Smart Sparrow’s product. We took the platform in a bold new direction, focusing on becoming the best tool for learning designers.';
+  'As a key developer for PanoramaED, I spearheaded the integration of real-time mentor chats and peer review features. My work streamlined the college comparison process, creating a dynamic platform that connects students with actionable insights and support for better admissions decisions.';
 const roles = [
-  'Art Direction',
-  'UX and UI Design',
-  'Front End Development',
-  'Motion Design',
+  'Software Development',
+  'Feature Integration',
+  'User Experience Enhancement',
+  'Real-Time Communication Systems',
 ];
 
 export const meta = () => {
@@ -88,10 +92,18 @@ export const SmartSparrow = () => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
   const themes = ['dark', 'light'];
+  const audioRef = useRef(null);
+
 
   const handleThemeChange = index => {
     toggleTheme(themes[index]);
   };
+
+  useEffect(() => {
+    if (audioRef.current) {
+        audioRef.current.play();
+    }
+}, []);
 
   return (
     <>
@@ -115,8 +127,8 @@ export const SmartSparrow = () => {
               key={theme}
               srcSet={
                 isDark
-                  ? `${imageSprLessonBuilderDark} 1280w, ${imageSprLessonBuilderDarkLarge} 2560w`
-                  : `${imageSprLessonBuilderLight} 1280w, ${imageSprLessonBuilderLightLarge} 2560w`
+                  ? `${panoramaEd} 1280w, ${panoramaEd} 2560w`
+                  : `${panoramaEd} 1280w, ${panoramaEd} 2560w`
               }
               width={1280}
               height={800}
@@ -134,13 +146,7 @@ export const SmartSparrow = () => {
           <ProjectTextRow>
             <ProjectSectionHeading>The problem</ProjectSectionHeading>
             <ProjectSectionText>
-              In 2017, Smart Sparrow began a project to build an entirely new platform to
-              from the ground up to serve as the most powerful tool for educators to
-              create online learning experiences. The old platform was built in Flash, and
-              there were a number of user experience problems to solve in the process of
-              moving the platform to Javascript. The primary goals for the project were
-              reducing barriers to collaboration, and making the platform both easier for
-              new users, but with plenty of room to scale for advanced users.
+            Students worldwide encounter challenges in discovering and comparing colleges due to fragmented information and a lack of multilingual support. The admissions process is often hindered by language barriers, limiting access to reliable, real-time insights and personalized guidance, which can affect decision-making and lead to missed opportunities.
             </ProjectSectionText>
           </ProjectTextRow>
         </ProjectSection>
@@ -150,8 +156,8 @@ export const SmartSparrow = () => {
               key={theme}
               srcSet={
                 isDark
-                  ? `${imageSprComponentsDark} 1024w, ${imageSprComponentsDarkLarge} 2048w`
-                  : `${imageSprComponentsLight} 1024w, ${imageSprComponentsLightLarge} 2048w`
+                  ? `${collegeCompare} 1024w, ${collegeCompare} 2048w`
+                  : `${collegeCompare} 1024w, ${collegeCompare} 2048w`
               }
               width={1024}
               hright={800}
@@ -173,44 +179,19 @@ export const SmartSparrow = () => {
               </SegmentedControl>
             </ProjectTextRow>
             <ProjectTextRow>
-              <ProjectSectionHeading>The aero design system</ProjectSectionHeading>
+              <ProjectSectionHeading>Enhanced College Discovery Tools</ProjectSectionHeading>
               <ProjectSectionText>
-                To streamline the design process across designers and engineers for such a
-                large project, it was important to lay the foundations with a strong,
-                flexible design system that could evolve during the product’s development
-                cycle. This would inform both the aesthetics and user experience across
-                the product itself as well as the website and marketing material.
+              We developed a comprehensive platform that consolidates detailed college profiles and comparison features. This approach simplifies the research process, allowing students to easily evaluate institutions based on key criteria like programs, campus facilities, and costs.
               </ProjectSectionText>
             </ProjectTextRow>
           </ProjectSectionContent>
         </ProjectSection>
         <ProjectSection>
           <ProjectSectionContent>
-            <Image
-              raised
-              key={theme}
-              srcSet={
-                isDark
-                  ? `${imageSprDesignSystemDark} 1280w, ${imageSprDesignSystemDarkLarge} 2560w`
-                  : `${imageSprDesignSystemLight} 1280w, ${imageSprDesignSystemLightLarge} 2560w`
-              }
-              width={1280}
-              height={800}
-              placeholder={
-                isDark
-                  ? imageSprDesignSystemDarkPlaceholder
-                  : imageSprDesignSystemLightPlaceholder
-              }
-              alt="The homepage of the aero design system docs website linking to principles and components."
-              sizes="100vw"
-            />
             <ProjectTextRow>
-              <ProjectSectionHeading>Design system docs</ProjectSectionHeading>
+              <ProjectSectionHeading>Peer Reviews and Posts</ProjectSectionHeading>
               <ProjectSectionText>
-                A design system is useless if no one knows how to use it, so we put
-                together a comprehensive documentation website to cover principles, ux,
-                accessibility, and component guidelines for designers and engineers
-                working with the system.
+              To provide authentic insights, we integrated a feature for peer reviews and posts. Students can read and contribute real experiences, offering valuable perspectives on campus life and academic environments, which aids in making more informed decisions.
               </ProjectSectionText>
             </ProjectTextRow>
           </ProjectSectionContent>
@@ -232,20 +213,17 @@ export const SmartSparrow = () => {
             <ProjectSectionColumns width="full">
               <ProjectSectionContent width="full">
                 <ProjectTextRow width="s">
-                  <ProjectSectionHeading>Motion design</ProjectSectionHeading>
+                  <ProjectSectionHeading>Real-Time Mentor Chats</ProjectSectionHeading>
                   <ProjectSectionText>
-                    Animation was a core principle in making the authoring experience a
-                    more understandable process. Elements animate in ways that indicate
-                    the cause and effect of each interaction to improve the fluidity of
-                    the overall experience.
+                  Our platform includes a real-time chat feature connecting students with experienced mentors. This enables personalized advice on college selection and application strategies, helping students navigate the admissions process with expert support.
                   </ProjectSectionText>
                 </ProjectTextRow>
               </ProjectSectionContent>
               <Image
                 raised
                 className={styles.video}
-                srcSet={`${videoSprMotion} 1280w, ${videoSprMotionLarge} 2560w`}
-                width={1280}
+                srcSet={`${liveChat} 1100w, ${liveChat} 2100w`}
+                width={1380}
                 height={800}
                 placeholder={videoSprMotionPlaceholder}
                 alt="A learning designer building and deploying an interactive lesson on volcanism using the app."
@@ -257,89 +235,15 @@ export const SmartSparrow = () => {
         <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow>
-              <ProjectSectionHeading>Encouraging adaptivity</ProjectSectionHeading>
+              <ProjectSectionHeading>Multilingual Support</ProjectSectionHeading>
               <ProjectSectionText>
-                A major part of solving for collaboration was being able to visualize the
-                learner experience in the editor. This was especially beneficial for
-                subject matter experts and instructors need to review and give feedback on
-                the higher level structure without having to dig through all of the
-                adaptivity scenarios screen by screen.
+              To address language barriers, we implemented multilingual support across the platform. This feature ensures students from diverse linguistic backgrounds can access and navigate the platform in their preferred language, improving accessibility and user experience.
               </ProjectSectionText>
             </ProjectTextRow>
-            <Image
-              raised
-              key={theme}
-              srcSet={
-                isDark
-                  ? `${imageSprStoryboarderDark} 1280w, ${imageSprStoryboarderDarkLarge} 2560w`
-                  : `${imageSprStoryboarderLight} 1280w, ${imageSprStoryboarderLightLarge} 2560w`
-              }
-              width={1280}
-              height={800}
-              placeholder={
-                isDark
-                  ? imageSprStoryboarderDarkPlaceholder
-                  : imageSprStoryboarderLightPlaceholder
-              }
-              alt="A drag and drop storyboard style editor for creating an adaptive lesson."
-              sizes={`(max-width: ${media.mobile}px) 100vw, 80vw`}
-            />
+            
           </ProjectSectionContent>
         </ProjectSection>
-        <ProjectSection>
-          <ProjectSectionColumns>
-            <ProjectSectionContent>
-              <ProjectTextRow>
-                <ProjectSectionHeading>
-                  An extensible plugin ecosystem usable by everyone
-                </ProjectSectionHeading>
-                <ProjectSectionText>
-                  The most powerful aspect of the platform is the ability to create custom
-                  plugins for any content, whether it be a degree, course, lesson, screen,
-                  or interactive component. Out of the box these can be made configurable
-                  with minimal effort from developers. Learning designers can then edit
-                  everything using a common configuration interface.
-                </ProjectSectionText>
-              </ProjectTextRow>
-            </ProjectSectionContent>
-            <div className={styles.sidebarImages}>
-              <Image
-                className={styles.sidebarImage}
-                srcSet={
-                  isDark
-                    ? `${imageSprSchema2Dark} 260w, ${imageSprSchema2DarkLarge} 520w`
-                    : `${imageSprSchema2Light} 260w, ${imageSprSchema2LightLarge} 520w`
-                }
-                width={260}
-                height={660}
-                placeholder={
-                  isDark
-                    ? imageSprSchema2DarkPlaceholder
-                    : imageSprSchema2LightPlaceholder
-                }
-                alt="Configuration options for a component."
-                sizes={`(max-width: ${media.mobile}px) 50vw, 25vw`}
-              />
-              <Image
-                className={styles.sidebarImage}
-                srcSet={
-                  isDark
-                    ? `${imageSprSchema1Dark} 260w, ${imageSprSchema1DarkLarge} 520w`
-                    : `${imageSprSchema1Light} 260w, ${imageSprSchema1LightLarge} 520w`
-                }
-                width={260}
-                height={660}
-                placeholder={
-                  isDark
-                    ? imageSprSchema1DarkPlaceholder
-                    : imageSprSchema1LightPlaceholder
-                }
-                alt="Configuration options for text."
-                sizes={`(max-width: ${media.mobile}px) 50vw, 25vw`}
-              />
-            </div>
-          </ProjectSectionColumns>
-        </ProjectSection>
+        
         <ThemeProvider theme="dark" data-invert>
           <Suspense>
             <Earth
@@ -539,12 +443,7 @@ export const SmartSparrow = () => {
               </svg>
               <ProjectSectionHeading>Project outcomes</ProjectSectionHeading>
               <ProjectSectionText>
-                Ultimately the project was successful after Smart Sparrow and the aero
-                platform were{' '}
-                <Link href="https://www.prnewswire.com/news-releases/pearson-acquires-interactive-learning-technology-from-smart-sparrow-300987673.html">
-                  acquired by Pearson in 2020
-                </Link>{' '}
-                to become a foundation for their next generation learning platform.
+              The PanoramaED project enhanced the college search process by integrating global college comparisons, peer reviews, real-time mentorship, and multilingual support. These features simplify decision-making and improve accessibility, making the platform a valuable tool for students seeking informed and personalized educational choices.
               </ProjectSectionText>
             </ProjectTextRow>
           </ProjectSectionContent>

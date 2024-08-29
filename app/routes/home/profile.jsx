@@ -21,16 +21,11 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="Hi there" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Hamish, currently I live in Sydney working as a senior product designer at{' '}
-      <Link href="https://www.qwilr.com">Qwilr</Link>. My projects include UX design, UI
-      animations, and icon illustration. Being comfortable with code allows me to rapidly
-      prototype and validate experiences. If you’re interested in the tools and software I
-      use check out my <Link href="/uses">uses page</Link>.
+    I’m Shiva Teja , pursuing a Master’s in Software Engineering Systems at Northeastern University. My work includes full-stack development, cloud computing, and UX design. I leverage my skills in Java, JavaScript, and Python to build and optimize applications. Check out my portfolio to see the tools I use.
+
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      In my spare time I like to practice Brazilian Jiu Jitsu, play video games, and{' '}
-      <Link href="/projects/volkihar-knight">make mods</Link>. I’m always down for hearing
-      about new projects, so feel free to drop me a line.
+    In my free time, I explore tech trends, learn new programming languages, and work on innovative projects. Feel free to reach out if you want to discuss opportunities or collaborate!
     </Text>
   </Fragment>
 );

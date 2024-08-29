@@ -1,9 +1,8 @@
 {
   "name": "portfolio",
-  "homepage": "https://hamishw.com",
-  "description": "Portfolio site for Hamish Williams",
-  "repository": "https://github.com/HamishMW/portfolio.git",
-  "author": "Hamish Williams",
+  "homepage": "https://shivadasi.me",
+  "description": "Portfolio site for Shiva Teja",
+  "author": "Shiva Teja",
   "sideEffects": false,
   "type": "module",
   "scripts": {

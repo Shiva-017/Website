@@ -1,11 +1,11 @@
 {
-  "name": "Hamish Williams",
-  "role": "Designer",
-  "disciplines": ["Developer", "Prototyper", "Animator", "Illustrator", "Modder"],
+  "name": "Shiva Teja Dasi",
+  "role": "Software Developer",
+  "disciplines": [ "Designer", "DevOps Engineer", "Prototyper", "Programmer", "Nature Enthusiast" ],
   "url": "https://hamishw.com",
-  "twitter": "@hamishMW",
-  "figma": "@Hamish",
-  "github": "HamishMW",
+  "linkedin": "shiva-teja-dasi",
+  "figma": "@shiva017",
+  "github": "Shiva-017",
   "repo": "https://github.com/HamishMW/portfolio",
   "ascii": "__  __  __\n\u005C \u005C \u005C \u005C \u005C\u2215\n \u005C \u005C\u2215\u005C \u005C\n  \u005C\u2215  \u005C\u2215\n"
 }

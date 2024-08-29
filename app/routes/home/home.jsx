@@ -18,6 +18,10 @@ import { ProjectSummary } from './project-summary';
 import { useEffect, useRef, useState } from 'react';
 import config from '~/config.json';
 import styles from './home.module.css';
+import home from '~/assets/home.png';
+import rideeasy from '~/assets/RE1.png';
+import rideeasy2 from '~/assets/RE2.png';
+import login from '~/assets/login.png';
 
 // Prefetch draco decoader wasm
 export const links = () => {
@@ -103,8 +107,8 @@ export const Home = () => {
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="Designing the future of education"
-        description="Designing a platform to help educators build better online courseware"
+        title="Empowering Global Education Journeys"
+        description="Building a platform to help students discover, compare, and choose their ideal college worldwide."
         buttonText="View project"
         buttonLink="/projects/smart-sparrow"
         model={{
@@ -112,7 +116,7 @@ export const Home = () => {
           alt: 'Smart Sparrow lesson builder',
           textures: [
             {
-              srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
+              srcSet: `${home} 1280w, ${home} 2560w`,
               placeholder: sprTexturePlaceholder,
             },
           ],
@@ -124,20 +128,20 @@ export const Home = () => {
         sectionRef={projectTwo}
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
-        title="Video game progress tracking"
-        description="Design and development for a video game tracking app built in React Native"
+        title="Carpooling App Design"
+        description="UI/UX design and prototyping for a carpooling app, created in Figma."
         buttonText="View website"
-        buttonLink="https://gamestack.hamishw.com"
+        buttonLink="https://www.figma.com/proto/Z4KTFvaMru2J0L7lKyISjF/RideEasy?node-id=8-37&t=LW8v8sQY64zcrQGF-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2&show-proto-sidebar=1"
         model={{
           type: 'phone',
           alt: 'App login screen',
           textures: [
             {
-              srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
+              srcSet: `${rideeasy} 375w, ${rideeasy} 750w`,
               placeholder: gamestackTexturePlaceholder,
             },
             {
-              srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
+              srcSet: `${rideeasy2} 375w, ${rideeasy2} 750w`,
               placeholder: gamestackTexture2Placeholder,
             },
           ],
@@ -148,16 +152,16 @@ export const Home = () => {
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
+        title="Task Management Application"
+        description="TaskMaster is a JavaFX-based app for creating, managing, and tracking tasks with an MVC architecture."
         buttonText="View project"
         buttonLink="/projects/slice"
         model={{
           type: 'laptop',
-          alt: 'Annotating a biomedical image in the Slice app',
+          alt: 'TaskMaster is a JavaFX-based app for creating, managing, and tracking tasks with an MVC architecture.',
           textures: [
             {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
+              srcSet: `${login} 800w, ${login} 1920w`,
               placeholder: sliceTexturePlaceholder,
             },
           ],
