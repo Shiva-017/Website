@@ -470,9 +470,9 @@ export const Earth = ({
       }
     };
 
-    if (process.env.NODE_ENV === 'development') {
+    // if (process.env.NODE_ENV === 'development') {
       currentCanvas.addEventListener('click', handleMouseUp);
-    }
+    // }
 
     return () => {
       currentCanvas.removeEventListener('click', handleMouseUp);
