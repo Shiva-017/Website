@@ -24,7 +24,8 @@ import sliceSlides from '~/assets/slice-slides.jpg';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
 import home from '~/assets/taskHome.png';
-import uml from '~/assets/uml.jpg';
+import uml from '~/assets/uml.png';
+import uml2 from '~/assets/uml2.png';
 import tasks from '~/assets/Tasks.png';
 import {
   ProjectBackground,
@@ -67,7 +68,7 @@ export const Slice = () => {
         <ProjectHeader
           title={title}
           description={description}
-          url="https://www.best.edu.au/s/q2yjjvl7?data=8%404!9%4020303!10%40-15087&version=1"
+          url="https://github.com/Shiva-017/TaskApp"
           roles={roles}
         />
         <ProjectSection padding="top">
@@ -94,6 +95,15 @@ export const Slice = () => {
               <Image
                 // className={styles.sidebarImage}
                 srcSet={`${uml} 350w, ${uml} 700w`}
+                width={350}
+                height={750}
+                placeholder={sliceSidebarAnnotationsPlaceholder}
+                alt="Multiple user annotations on a shared layer."
+                sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
+              />
+              <Image
+                // className={styles.sidebarImage}
+                srcSet={`${uml2} 350w, ${uml2} 700w`}
                 width={350}
                 height={750}
                 placeholder={sliceSidebarAnnotationsPlaceholder}

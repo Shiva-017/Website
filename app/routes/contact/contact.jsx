@@ -31,19 +31,37 @@ const MAX_MESSAGE_LENGTH = 4096;
 const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
 
 export async function action({ context, request }) {
-  const ses = new SESClient({
-    region: 'us-east-1',
-    credentials: {
-      accessKeyId: context.cloudflare.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: context.cloudflare.env.AWS_SECRET_ACCESS_KEY,
-    },
-  });
-
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.set('Authorization', 'Basic ' + btoa('e411d98204597ae093036b34bf6a9ec8'+":" +'90bb147eeb810d40b7d45766861e149e'));
   const formData = await request.formData();
   const isBot = String(formData.get('name'));
   const email = String(formData.get('email'));
   const message = String(formData.get('message'));
   const errors = {};
+
+  const data = JSON.stringify({
+    "Messages": [{
+      "From": {"Email": `Portfolio<no-reply@shivadasi.me>`, "Name": email},
+      "To": [{"Email": 'dasi.s@northeastern.edu', "Name": 'Shiva'}],
+      "Subject": 'New Connection message from portfolio site',
+      "HTMLPart": `<html>
+      <body>
+          <p>Hey Shiva! You have got a new message from ${email}.</p>
+          <p>${message}</p>
+          <p>Thank you!</p>
+      </body>
+     </html>`
+    }]
+  });
+
+  const requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: data,
+  };
+
+
 
   // Return without sending if a bot trips the honeypot
   if (isBot) return json({ success: true });
@@ -69,26 +87,10 @@ export async function action({ context, request }) {
     return json({ errors });
   }
 
-  // Send email via Amazon SES
-  await ses.send(
-    new SendEmailCommand({
-      Destination: {
-        ToAddresses: [context.cloudflare.env.EMAIL],
-      },
-      Message: {
-        Body: {
-          Text: {
-            Data: `From: ${email}\n\n${message}`,
-          },
-        },
-        Subject: {
-          Data: `Portfolio message from ${email}`,
-        },
-      },
-      Source: `Portfolio <${context.cloudflare.env.FROM_EMAIL}>`,
-      ReplyToAddresses: [email],
-    })
-  );
+  fetch("https://api.mailjet.com/v3.1/send", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 
   return json({ success: true });
 }
