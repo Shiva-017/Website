@@ -40,26 +40,26 @@ export async function action({ context, request }) {
   const message = String(formData.get('message'));
   const errors = {};
 
-  const data = JSON.stringify({
-    "Messages": [{
-      "From": {"Email": `Portfolio<no-reply@shivadasi.me>`, "Name": email},
-      "To": [{"Email": 'dasi.s@northeastern.edu', "Name": 'Shiva'}],
-      "Subject": 'New Connection message from portfolio site',
-      "HTMLPart": `<html>
-      <body>
-          <p>Hey Shiva! You have got a new message from ${email}.</p>
-          <p>${message}</p>
-          <p>Thank you!</p>
-      </body>
-     </html>`
-    }]
-  });
+  // const data = JSON.stringify({
+  //   "Messages": [{
+  //     "From": {"Email": `Portfolio<no-reply@shivadasi.me>`, "Name": email},
+  //     "To": [{"Email": 'dasi.s@northeastern.edu', "Name": 'Shiva'}],
+  //     "Subject": 'New Connection message from portfolio site',
+  //     "HTMLPart": `<html>
+  //     <body>
+  //         <p>Hey Shiva! You have got a new message from ${email}.</p>
+  //         <p>${message}</p>
+  //         <p>Thank you!</p>
+  //     </body>
+  //    </html>`
+  //   }]
+  // });
 
-  const requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: data,
-  };
+  // const requestOptions = {
+  //   method: 'POST',
+  //   headers: myHeaders,
+  //   body: data,
+  // };
 
 
 
@@ -87,12 +87,39 @@ export async function action({ context, request }) {
     return json({ errors });
   }
 
-  fetch("https://api.mailjet.com/v3.1/send", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+  try {
+    const response = await fetch("https://api.mailjet.com/v3.1/send", {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify({
+        "Messages": [{
+          "From": {"Email": `Portfolio<no-reply@shivadasi.me>`, "Name": email},
+          "To": [{"Email": 'dasi.s@northeastern.edu', "Name": 'Shiva'}],
+          "Subject": 'New Connection message from portfolio site',
+          "HTMLPart": `<html>
+            <body>
+                <p>Hey Shiva! You have got a new message from ${email}.</p>
+                <p>${message}</p>
+                <p>Thank you!</p>
+            </body>
+          </html>`
+        }]
+      }),
+    });
+  
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Failed to send email:', errorText);
+      return json({ success: false, errors: { message: 'Failed to send email.' } });
+    }
 
-  return json({ success: true });
+    const result = await response.json();
+    console.log('Email sent successfully:', result);
+    return json({ success: true });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    return json({ success: false, errors: { message: 'Error sending email.' } });
+  }
 }
 
 export const Contact = () => {
