@@ -22,6 +22,10 @@ import home from '~/assets/home.png';
 import rideeasy from '~/assets/RE1.png';
 import rideeasy2 from '~/assets/RE2.png';
 import login from '~/assets/login.png';
+import wequiz from "~/assets/home.jpg";
+import logo from "~/assets/wequizlogo.png"
+import page1 from "~/assets/wequiz3.jpg";
+
 
 // Prefetch draco decoader wasm
 export const links = () => {
@@ -57,10 +61,22 @@ export const Home = () => {
   const projectOne = useRef();
   const projectTwo = useRef();
   const projectThree = useRef();
+  const projectFour = useRef();
   const details = useRef();
 
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const skillData = {
+      Languages: ["Python", "Java", "JavaScript", "TypeScript", "Golang", "C#", "SQL"],
+      "Front End": ["HTML", "CSS", "Angular", "React", "Next.js", "Flutter", "Redux", "WebSocket", "PWA"],
+      "Back End": ["Node.js", "Express", ".NET", "JWT", "OAuth 2.0", "RESTful API"],
+      "Cloud & DevOps": ["AWS", "Google Cloud", "Jenkins", "Linux", "Kubernetes", "Docker", "Terraform", "Shell Scripting", "Git"],
+      Database: ["MySQL", "Elasticsearch", "MongoDB", "Postgres", "Redis"],
+      "Tools & Technologies": ["VS Code", "Android Studio", "Postman", "GitLab", "Swagger", "JIRA", "MIRO", "Figma", "Excel", "Fusion 360"],
+    };
+  
+
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, details];
+    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -148,8 +164,33 @@ export const Home = () => {
         }}
       />
       <ProjectSummary
-        id="project-3"
+        id="project-2"
+        alternate
         sectionRef={projectThree}
+        visible={visibleSections.includes(projectTwo.current)}
+        index={2}
+        title="We Quiz - A Multiplayer Mobile App"
+        description="We Quiz is a multiplayer trivia app where players compete in real-time, track progress on leaderboards, and enjoy personalized quizzes. Built with Flutter and Firebase, it delivers a fast, secure, and engaging experience."
+        buttonText="View Repository"
+        buttonLink="https://github.com/Shiva-017/WeQuiz.git"
+        model={{
+          type: 'phone',
+          alt: 'App login screen',
+          textures: [
+            {
+              srcSet: `${page1} 375w, ${page1} 750w`,
+              placeholder: gamestackTexturePlaceholder,
+            },
+            {
+              srcSet: `${wequiz} 375w, ${wequiz} 750w`,
+              placeholder: gamestackTexture2Placeholder,
+            },
+          ],
+        }}
+      />
+      <ProjectSummary
+        id="project-3"
+        sectionRef={projectFour}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
         title="Task Management Application"
@@ -167,6 +208,35 @@ export const Home = () => {
           ],
         }}
       />
+  <div className={styles.skillsSection}>
+      <h2 className={styles.skillsTitle}>Skills</h2>
+      <div className={styles.categories}>
+        {Object.keys(skillData).map((category) => (
+          <button
+            key={category}
+            className={styles.categoryButton}
+            onClick={() => setSelectedCategory(selectedCategory === category ? null : category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <div className={styles.skillsList}>
+        {selectedCategory &&
+          skillData[selectedCategory].map((skill, index) => (
+            <div
+              key={skill}
+              className={`${styles.skillItem} ${
+                selectedCategory ? styles.animateSkill : ""
+              }`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              {skill}
+            </div>
+          ))}
+      </div>
+    </div>
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}
