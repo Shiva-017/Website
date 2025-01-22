@@ -25,6 +25,7 @@ import login from '~/assets/login.png';
 import wequiz from "~/assets/home.jpg";
 import logo from "~/assets/wequizlogo.png"
 import page1 from "~/assets/wequiz3.jpg";
+import gcp from "~/assets/gcp.jpg";
 
 
 // Prefetch draco decoader wasm
@@ -62,6 +63,7 @@ export const Home = () => {
   const projectTwo = useRef();
   const projectThree = useRef();
   const projectFour = useRef();
+  const projectFive = useRef();
   const details = useRef();
 
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -76,7 +78,7 @@ export const Home = () => {
   
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, details];
+    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -164,11 +166,11 @@ export const Home = () => {
         }}
       />
       <ProjectSummary
-        id="project-2"
+        id="project-3"
         alternate
         sectionRef={projectThree}
-        visible={visibleSections.includes(projectTwo.current)}
-        index={2}
+        visible={visibleSections.includes(projectThree.current)}
+        index={3}
         title="We Quiz - A Multiplayer Mobile App"
         description="We Quiz is a multiplayer trivia app where players compete in real-time, track progress on leaderboards, and enjoy personalized quizzes. Built with Flutter and Firebase, it delivers a fast, secure, and engaging experience."
         buttonText="View Repository"
@@ -189,10 +191,10 @@ export const Home = () => {
         }}
       />
       <ProjectSummary
-        id="project-3"
+        id="project-4"
         sectionRef={projectFour}
-        visible={visibleSections.includes(projectThree.current)}
-        index={3}
+        visible={visibleSections.includes(projectFour.current)}
+        index={4}
         title="Task Management Application"
         description="TaskMaster is a JavaFX-based app for creating, managing, and tracking tasks with an MVC architecture."
         buttonText="View project"
@@ -208,6 +210,52 @@ export const Home = () => {
           ],
         }}
       />
+
+<ProjectSummary
+        id="project-5"
+        sectionRef={projectFive}
+        visible={visibleSections.includes(projectFive.current)}
+        index={5}
+        title="GCP Cloud Infrastructure Suite"
+        description="This project leverages GCP Cloud as the backbone to architect a web application optimized for scalability, robust security, and seamless availability."
+        buttonText="Web App Machine Image (Packer)"
+        buttonLink="https://github.com/Shiva-017/webapp/"
+        secondButtonText="Infrastructure code (Terraform)"
+        secondButtonLink="https://github.com/Shiva-017/tf-gcp-infra"
+        ThirdButtonText="Email verification (Serverless)"
+        ThirdButtonLink="https://github.com/Shiva-017/serverless"
+        model={{
+          type: 'laptop',
+          alt: 'This project leverages GCP Cloud as the backbone to architect a web application optimized for scalability, robust security, and seamless availability.',
+          textures: [
+            {
+              srcSet: `${gcp} 800w, ${gcp} 1920w`,
+              placeholder: sliceTexturePlaceholder,
+            },
+          ],
+        }}
+      />
+
+{/* <ProjectSummary
+        id="project-6"
+        sectionRef={projectFour}
+        visible={visibleSections.includes(projectSix.current)}
+        index={6}
+        title="Stable Diffusion Model for Image Generation"
+        description="Fine-tuned Stable Diffusion on Flickr8k for enhanced image generation and efficient multi-GPU training."
+        buttonText="Web App Machine Image (Packer)"
+        buttonLink="https://github.com/Shiva-017/webapp/"
+        model={{
+          type: 'laptop',
+          alt: 'Fine-tuned Stable Diffusion on Flickr8k for enhanced image generation and efficient multi-GPU training.',
+          textures: [
+            {
+              srcSet: `${gcp} 800w, ${gcp} 1920w`,
+              placeholder: sliceTexturePlaceholder,
+            },
+          ],
+        }}
+      /> */}
   <div className={styles.skillsSection}>
       <h2 className={styles.skillsTitle}>Skills</h2>
       <div className={styles.categories}>

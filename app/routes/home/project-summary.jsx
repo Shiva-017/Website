@@ -28,6 +28,10 @@ export function ProjectSummary({
   model,
   buttonText,
   buttonLink,
+  secondButtonText,
+  secondButtonLink,
+  ThirdButtonText,
+  ThirdButtonLink,
   alternate,
   ...rest
 }) {
@@ -94,6 +98,16 @@ export function ProjectSummary({
             {buttonText}
           </Button>
         </div>
+        {secondButtonText ? <div className={styles.button} data-visible={visible}>
+          <Button iconHoverShift href={secondButtonLink} iconEnd="arrow-right">
+            {secondButtonText}
+          </Button>
+        </div> : ""}
+        {ThirdButtonText ? <div className={styles.button} data-visible={visible}>
+          <Button iconHoverShift href={ThirdButtonLink} iconEnd="arrow-right">
+            {ThirdButtonText}
+          </Button>
+        </div>: ""}
       </div>
     );
   }
