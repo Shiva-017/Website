@@ -26,6 +26,9 @@ import wequiz from "~/assets/home.jpg";
 import logo from "~/assets/wequizlogo.png"
 import page1 from "~/assets/wequiz3.jpg";
 import gcp from "~/assets/gcp.jpg";
+import cao from "~/assets/cao.webp";
+import govcs from "~/assets/govcs.jpg";
+import kvstore from "~/assets/cover.webp";
 
 
 // Prefetch draco decoader wasm
@@ -64,48 +67,56 @@ export const Home = () => {
   const projectThree = useRef();
   const projectFour = useRef();
   const projectFive = useRef();
+  const projectSix = useRef();
+  const projectSeven = useRef();
+  const projectEight = useRef();
+  const projectNine = useRef();
   const details = useRef();
 
-    const [selectedCategory, setSelectedCategory] = useState(null);
-    const skillData = {
-      Languages: ["Python", "Java", "JavaScript", "TypeScript", "Golang", "C#", "SQL"],
-      "Front End": ["HTML", "CSS", "Angular", "React", "Next.js", "Flutter", "Redux", "WebSocket", "PWA"],
-      "Back End": ["Node.js", "Express", ".NET", "JWT", "OAuth 2.0", "RESTful API"],
-      "Cloud & DevOps": ["AWS", "Google Cloud", "Jenkins", "Linux", "Kubernetes", "Docker", "Terraform", "Shell Scripting", "Git"],
-      Database: ["MySQL", "Elasticsearch", "MongoDB", "Postgres", "Redis"],
-      "Tools & Technologies": ["VS Code", "Android Studio", "Postman", "GitLab", "Swagger", "JIRA", "MIRO", "Figma", "Excel", "Fusion 360"],
-    };
-  
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const skillData = {
+    Languages: ["Python", "Java", "JavaScript", "TypeScript", "Golang", "C#", "SQL"],
+    "Front End": ["HTML", "CSS", "Angular", "React", "Next.js", "Flutter", "Redux", "WebSocket", "PWA"],
+    "Back End": ["Node.js", "Express", ".NET", "JWT", "OAuth 2.0", "RESTful API"],
+    "Cloud & DevOps": ["AWS", "Google Cloud", "Jenkins", "Linux", "Kubernetes", "Docker", "Terraform", "Shell Scripting", "Git"],
+    Database: ["MySQL", "Elasticsearch", "MongoDB", "Postgres", "Redis"],
+    "Tools & Technologies": ["VS Code", "Android Studio", "Postman", "GitLab", "Swagger", "JIRA", "MIRO", "Figma", "Excel", "Fusion 360"],
+  };
+
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, details];
+    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, projectSix, projectSeven, projectEight, projectNine, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const section = entry.target;
             observer.unobserve(section);
             if (visibleSections.includes(section)) return;
-            setVisibleSections(prevSections => [...prevSections, section]);
+            setVisibleSections((prevSections) => [...prevSections, section]);
           }
         });
       },
-      { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.1 }
     );
 
     const indicatorObserver = new IntersectionObserver(
       ([entry]) => {
         setScrollIndicatorHidden(!entry.isIntersecting);
       },
-      { rootMargin: '-100% 0px 0px 0px' }
+      { rootMargin: "-100% 0px 0px 0px" }
     );
 
-    sections.forEach(section => {
-      sectionObserver.observe(section.current);
+    sections.forEach((section) => {
+      if (section.current) {
+        sectionObserver.observe(section.current);
+      }
     });
 
-    indicatorObserver.observe(intro.current);
+    if (intro.current) {
+      indicatorObserver.observe(intro.current);
+    }
 
     return () => {
       sectionObserver.disconnect();
@@ -131,7 +142,7 @@ export const Home = () => {
         buttonLink="/projects/smart-sparrow"
         model={{
           type: 'laptop',
-          alt: 'Smart Sparrow lesson builder',
+          alt: 'Building a platform to help students discover, compare, and choose their ideal college worldwide.',
           textures: [
             {
               srcSet: `${home} 1280w, ${home} 2560w`,
@@ -211,7 +222,7 @@ export const Home = () => {
         }}
       />
 
-<ProjectSummary
+      <ProjectSummary
         id="project-5"
         sectionRef={projectFive}
         visible={visibleSections.includes(projectFive.current)}
@@ -236,55 +247,96 @@ export const Home = () => {
         }}
       />
 
-{/* <ProjectSummary
+      <ProjectSummary
         id="project-6"
-        sectionRef={projectFour}
+        sectionRef={projectSix}
         visible={visibleSections.includes(projectSix.current)}
         index={6}
-        title="Stable Diffusion Model for Image Generation"
-        description="Fine-tuned Stable Diffusion on Flickr8k for enhanced image generation and efficient multi-GPU training."
-        buttonText="Web App Machine Image (Packer)"
-        buttonLink="https://github.com/Shiva-017/webapp/"
+        title="Image Captioning with multi-GPU Training"
+        description="Optimized CNN-RNN image captioning with attention and multi-GPU training."
+        buttonText="View project"
+        buttonLink="https://github.com/Shiva-017/Caption-Generation-Model"
         model={{
           type: 'laptop',
-          alt: 'Fine-tuned Stable Diffusion on Flickr8k for enhanced image generation and efficient multi-GPU training.',
+          alt: 'Optimized CNN-RNN image captioning with attention and multi-GPU training.',
           textures: [
             {
-              srcSet: `${gcp} 800w, ${gcp} 1920w`,
+              srcSet: `${cao} 800w, ${cao} 1920w`,
               placeholder: sliceTexturePlaceholder,
             },
           ],
         }}
-      /> */}
-  <div className={styles.skillsSection}>
-      <h2 className={styles.skillsTitle}>Skills</h2>
-      <div className={styles.categories}>
-        {Object.keys(skillData).map((category) => (
-          <button
-            key={category}
-            className={styles.categoryButton}
-            onClick={() => setSelectedCategory(selectedCategory === category ? null : category)}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
+      />
+      <ProjectSummary
+        id="project-7"
+        sectionRef={projectSeven}
+        visible={visibleSections.includes(projectSeven.current)}
+        index={7}
+        title="Go-VCS - Version Control System"
+        description="A Git like versioning system built in Go using Merkle tree, with AI generated commit messages"
+        buttonText="View project"
+        buttonLink="https://github.com/Shiva-017/Go-VCS"
+        model={{
+          type: 'laptop',
+          alt: 'A Git like versioning system built in Go, with AI generated commit messages',
+          textures: [
+            {
+              srcSet: `${govcs} 800w, ${govcs} 1920w`,
+              placeholder: sliceTexturePlaceholder,
+            },
+          ],
+        }}
+      />
 
-      <div className={styles.skillsList}>
-        {selectedCategory &&
-          skillData[selectedCategory].map((skill, index) => (
-            <div
-              key={skill}
-              className={`${styles.skillItem} ${
-                selectedCategory ? styles.animateSkill : ""
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+      <ProjectSummary
+        id="project-7"
+        sectionRef={projectEight}
+        visible={visibleSections.includes(projectEight.current)}
+        index={8}
+        title="B+ Tree Key Value Store"
+        description="A B+ tree key-value store with a focus on concurrency and performance, built in Python."
+        buttonText="View project"
+        buttonLink="https://github.com/Shiva-017/Go-VCS"
+        model={{
+          type: 'laptop',
+          alt: 'B+ tree key-value store with a focus on concurrency and performance, built in Python.',
+          textures: [
+            {
+              srcSet: `${kvstore} 800w, ${kvstore} 1920w`,
+              placeholder: sliceTexturePlaceholder,
+            },
+          ],
+        }}
+      />
+      {/* <WorkExperience /> */}
+      <div className={styles.skillsSection}>
+        <h2 className={styles.skillsTitle}>Skills</h2>
+        <div className={styles.categories}>
+          {Object.keys(skillData).map((category) => (
+            <button
+              key={category}
+              className={styles.categoryButton}
+              onClick={() => setSelectedCategory(selectedCategory === category ? null : category)}
             >
-              {skill}
-            </div>
+              {category}
+            </button>
           ))}
+        </div>
+
+        <div className={styles.skillsList}>
+          {selectedCategory &&
+            skillData[selectedCategory].map((skill, index) => (
+              <div
+                key={skill}
+                className={`${styles.skillItem} ${selectedCategory ? styles.animateSkill : ""
+                  }`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {skill}
+              </div>
+            ))}
+        </div>
       </div>
-    </div>
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}

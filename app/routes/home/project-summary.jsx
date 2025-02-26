@@ -184,6 +184,37 @@ export function ProjectSummary({
             </div>
           </>
         )}
+        {model.type === 'ssd' && (
+          <>
+            {renderKatakana('ssd', visible)}
+            <div className={styles.model} data-device="ssd">
+              {!modelLoaded && (
+                <Loader center className={styles.loader} data-visible={visible} />
+              )}
+              {isHydrated && visible && (
+                <Suspense>
+                  <Model
+                    alt={model.alt}
+                    cameraPosition={{ x: 0, y: 0, z: 8 }}
+                    showDelay={300}
+                    onLoad={handleModelLoad}
+                    show={visible}
+                    models={[
+                      {
+                        ...deviceModels.ssd,
+                        texture: {
+                          ...model.textures[0],
+                          sizes: phoneSizes,
+                        },
+                      },
+                    ]}
+                  />
+                </Suspense>
+              )}
+            </div>
+          </>
+        )  
+        }
       </div>
     );
   }
