@@ -29,6 +29,7 @@ import gcp from "~/assets/gcp.jpg";
 import cao from "~/assets/cao.webp";
 import govcs from "~/assets/govcs.jpg";
 import kvstore from "~/assets/cover.webp";
+import mailmaster from '~/assets/mm.png';
 
 
 // Prefetch draco decoader wasm
@@ -71,6 +72,7 @@ export const Home = () => {
   const projectSeven = useRef();
   const projectEight = useRef();
   const projectNine = useRef();
+  const p10 = useRef();
   const details = useRef();
 
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -85,7 +87,7 @@ export const Home = () => {
 
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, projectSix, projectSeven, projectEight, projectNine, details];
+    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, projectSix, projectSeven, projectEight, projectNine, p10, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -182,8 +184,8 @@ export const Home = () => {
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="We Quiz - A Multiplayer Mobile App"
-        description="We Quiz is a multiplayer trivia app where players compete in real-time, track progress on leaderboards, and enjoy personalized quizzes. Built with Flutter and Firebase, it delivers a fast, secure, and engaging experience."
+        title="We Quiz - A Location-Based Trivia App"
+        description="Explore, Learn, and Play! An interactive quiz game that turns your travels into a fun journey of discovery. Powered by Flutter and Firebase for a seamless, secure, and lightning-fast experience."
         buttonText="View Repository"
         buttonLink="https://github.com/Shiva-017/WeQuiz.git"
         model={{
@@ -221,12 +223,31 @@ export const Home = () => {
           ],
         }}
       />
-
+      <ProjectSummary
+        id="project-10"
+        sectionRef={p10}
+        visible={visibleSections.includes(p10.current)}
+        index={5}
+        title="Mail Master"
+        description="Your AI Gmail Assistant. Powered by LLMs and a custom MCP server — fetch interviews, summarize threads, and reply to recruiters with natural language."
+        buttonText="Get the tool here"
+        buttonLink="https://github.com/Shiva-017/Mail_Master.git"
+        model={{
+          type: 'laptop',
+          alt: 'Your AI Gmail Assistant. Powered by LLMs and a custom MCP server — fetch interviews, summarize threads, and reply to recruiters with natural language.',
+          textures: [
+            {
+              srcSet: `${mailmaster} 800w, ${mailmaster} 1920w`,
+              placeholder: sliceTexturePlaceholder,
+            },
+          ],
+        }}
+      />
       <ProjectSummary
         id="project-5"
         sectionRef={projectFive}
         visible={visibleSections.includes(projectFive.current)}
-        index={5}
+        index={6}
         title="GCP Cloud Infrastructure Suite"
         description="This project leverages GCP Cloud as the backbone to architect a web application optimized for scalability, robust security, and seamless availability."
         buttonText="Web App Machine Image (Packer)"
@@ -251,7 +272,7 @@ export const Home = () => {
         id="project-6"
         sectionRef={projectSix}
         visible={visibleSections.includes(projectSix.current)}
-        index={6}
+        index={7}
         title="Image Captioning with multi-GPU Training"
         description="Optimized CNN-RNN image captioning with attention and multi-GPU training."
         buttonText="View project"
@@ -271,7 +292,7 @@ export const Home = () => {
         id="project-7"
         sectionRef={projectSeven}
         visible={visibleSections.includes(projectSeven.current)}
-        index={7}
+        index={8}
         title="Go-VCS - Version Control System"
         description="A Git like versioning system built in Go using Merkle tree, with AI generated commit messages"
         buttonText="View project"
@@ -292,7 +313,7 @@ export const Home = () => {
         id="project-7"
         sectionRef={projectEight}
         visible={visibleSections.includes(projectEight.current)}
-        index={8}
+        index={9}
         title="B+ Tree Key Value Store"
         description="A B+ tree key-value store with a focus on concurrency and performance, built in Python."
         buttonText="View project"
