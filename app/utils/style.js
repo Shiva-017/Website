@@ -3,7 +3,7 @@
  */
 export const media = {
   desktop: 2080,
-  laptop: 1680,
+  laptop: 1600,
   tablet: 1040,
   mobile: 696,
   mobileS: 400,
