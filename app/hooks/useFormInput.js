@@ -22,7 +22,6 @@ export function useFormInput(initialValue = '') {
   };
 
   const handleBlur = event => {
-    // Only validate when the user has made a change
     if (isDirty) {
       event.target.checkValidity();
     }
