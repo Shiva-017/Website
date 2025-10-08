@@ -21,6 +21,7 @@ export function useInViewport(
       if (isIntersecting && unobserveOnIntersect) {
         observer.unobserve(target);
         setIsUnobserved(true);
+        setHasIntersected(true);
       }
     }, options);
 
