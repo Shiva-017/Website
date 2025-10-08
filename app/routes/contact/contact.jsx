@@ -26,7 +26,7 @@ export const meta = () => {
   });
 };
 
-const MAX_EMAIL_LENGTH = 512;
+const MAX_EMAIL_LENGTH = 256;
 const MAX_MESSAGE_LENGTH = 4096;
 const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
 
