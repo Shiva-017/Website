@@ -8,6 +8,7 @@ export function useInViewport(
 ) {
   const [intersect, setIntersect] = useState(false);
   const [isUnobserved, setIsUnobserved] = useState(false);
+  const [hasIntersected, setHasIntersected] = useState(false);
 
   useEffect(() => {
     if (!elementRef?.current) return;
