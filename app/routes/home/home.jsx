@@ -83,7 +83,7 @@ export const Home = () => {
           setVisibleSections((prev) => [...prev, entry.target]);
         }
       });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    }, { rootMargin: '0px 0px -15% 0px', threshold: 0.1 });
     const indicatorObserver = new IntersectionObserver(([entry]) => setScrollIndicatorHidden(!entry.isIntersecting), { rootMargin: '-100% 0px 0px 0px' });
     sections.forEach((s) => { if (s.current) sectionObserver.observe(s.current); });
     if (intro.current) indicatorObserver.observe(intro.current);
