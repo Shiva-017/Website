@@ -27,7 +27,7 @@ export const links = () => [
 
 export const meta = () => baseMeta({
   title: 'Software Engineer',
-  description: `Portfolio of ${config.name} — a Software Engineer with 3+ years building scalable systems, AI integrations, and cloud infrastructure.`,
+  description: `Portfolio of ${config.name} — a Software Engineer specializing in scalable systems, AI integrations, and cloud infrastructure.`,
 });
 
 const DI = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
