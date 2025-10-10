@@ -28,7 +28,7 @@ export const meta = () => {
 
 const MAX_EMAIL_LENGTH = 256;
 const MAX_MESSAGE_LENGTH = 2048;
-const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function action({ context, request }) {
   const myHeaders = new Headers();
