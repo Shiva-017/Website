@@ -106,7 +106,7 @@ export const Home = () => {
       {/* ─── Projects (filterable grid) ────────────────── */}
       <section className={styles.projectsSection} id="project-1">
         <h2 className={styles.sectionHeading}>Projects</h2>
-        <p className={styles.sectionSubheading}>From AI agents to cloud infrastructure to mobile apps</p>
+        <p className={styles.sectionSubheading}>From AI agents to distributed systems to mobile apps</p>
         <div className={styles.projectFilters}>
           {PROJECT_CATEGORIES.map(cat => (
             <button key={cat} className={styles.filterButton} data-active={projectFilter === cat} onClick={() => setProjectFilter(cat)}>
