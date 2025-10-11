@@ -157,7 +157,7 @@ export const Home = () => {
         </div>
         <div className={styles.skillLogoGrid}>
           {skillCategories[activeSkillCat].skills.map((skill, j) => (
-            <div key={skill.name} className={styles.skillLogoCard} style={{ animationDelay: `${j * 0.05}s` }}>
+            <div key={skill.name} className={styles.skillLogoCard} style={{ animationDelay: `${j * 0.06}s` }}>
               <div className={styles.skillLogoWrap}>
                 <img src={skill.icon} alt={skill.name} className={styles.skillLogo} loading="lazy" />
               </div>
