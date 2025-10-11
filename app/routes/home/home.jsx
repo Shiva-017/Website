@@ -97,7 +97,7 @@ export const Home = () => {
       {/* ─── Experience (3D Cards) ──────────────────────── */}
       <section className={styles.experienceSection} id="experience">
         <h2 className={styles.sectionHeading}>Experience</h2>
-        <p className={styles.sectionSubheading}>3+ years building at scale — hover to tilt, click to flip</p>
+        <p className={styles.sectionSubheading}>Building at scale — hover to tilt, click to flip</p>
         <div className={styles.expGrid}>
           {experienceData.map((exp, i) => <ExperienceCard3D key={i} exp={exp} />)}
         </div>
