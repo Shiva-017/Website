@@ -71,7 +71,9 @@ export const Home = () => {
   const [projectFilter, setProjectFilter] = useState('All');
   const [activeSkillCat, setActiveSkillCat] = useState(0);
 
-  const filteredProjects = projectFilter === 'All' ? projectsData : projectsData.filter(p => p.category === projectFilter);
+  const filteredProjects = projectFilter === 'All'
+    ? projectsData
+    : projectsData.filter(p => p.category === projectFilter);
 
   useEffect(() => {
     const sections = [intro, details];
