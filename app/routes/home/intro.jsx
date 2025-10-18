@@ -91,7 +91,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                     <Transition
                       unmount
                       in={item === currentDiscipline}
-                      timeout={{ enter: 3000, exit: 2000 }}
+                      timeout={{ enter: 2500, exit: 1500 }}
                       key={item}
                     >
                       {({ status, nodeRef }) => (
