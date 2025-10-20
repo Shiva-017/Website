@@ -20,7 +20,7 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="Hi there" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I'm Shiva Teja — a Software Engineer with 3+ years of experience building
+      I'm Shiva Teja — a Software Engineer with 4+ years of experience building
       scalable distributed systems and production-grade AI integrations. I've delivered
       10x performance improvements, 60% latency reductions, and deployed RAG chatbots
       and MCP agents that serve thousands of users. I hold a Master's in Software
