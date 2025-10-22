@@ -80,7 +80,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
               <div className={styles.image}>
                 <Image
                   reveal
-                  delay={100}
+                  delay={150}
                   placeholder={profileImgPlaceholder}
                   srcSet={`${profileImg} 480w, ${profileImg} 960w`}
                   width={960}
