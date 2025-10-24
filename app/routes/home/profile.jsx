@@ -69,7 +69,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
               <div className={styles.tag} aria-hidden>
                 <Divider
                   notchWidth="72px"
-                  notchHeight="8px"
+                  notchHeight="10px"
                   collapsed={!visible}
                   collapseDelay={1000}
                 />
