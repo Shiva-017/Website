@@ -187,7 +187,7 @@ export const Navbar = () => {
                 onClick={handleMobileNavClick}
                 style={cssProps({
                   transitionDelay: numToMs(
-                    Number(msToNum(tokens.base.durationS)) + index * 50
+                    Number(msToNum(tokens.base.durationS)) + index * 60
                   ),
                 })}
               >
