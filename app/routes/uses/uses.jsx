@@ -118,7 +118,7 @@ export const Uses = () => {
                   </TableRow>
                   <TableRow>
                     <TableHeadCell>Operating System</TableHeadCell>
-                    <TableCell>macOS / Ubuntu (dual)</TableCell>
+                    <TableCell>macOS Sequoia / Ubuntu 24.04</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableHeadCell>Terminal</TableHeadCell>
