@@ -35,7 +35,7 @@ export const Uses = () => {
         />
         <ProjectHeader
           title="Uses"
-          description="The tools, software, and hardware I use day-to-day to design, code, and ship products. Always evolving."
+          description="The tools, software, and hardware I use day-to-day to design, build, and ship. Always evolving."
         />
         <ProjectSection padding="none" className={styles.section}>
           <ProjectSectionContent>
