@@ -20,7 +20,7 @@ import styles from './uses.module.css';
 export const meta = () => {
   return baseMeta({
     title: 'Uses',
-    description: 'A list of tools, software, and hardware I use to build things',
+    description: 'Tools, software, and hardware I use to design, code, and ship products',
   });
 };
 
