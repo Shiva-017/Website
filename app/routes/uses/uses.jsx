@@ -126,7 +126,7 @@ export const Uses = () => {
                   </TableRow>
                   <TableRow>
                     <TableHeadCell>Browser</TableHeadCell>
-                    <TableCell>Chrome (dev) / Arc (daily)</TableCell>
+                    <TableCell>Arc (daily) / Chrome (dev)</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
