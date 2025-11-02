@@ -122,7 +122,7 @@ export const Uses = () => {
                   </TableRow>
                   <TableRow>
                     <TableHeadCell>Terminal</TableHeadCell>
-                    <TableCell>iTerm2 + zsh</TableCell>
+                    <TableCell>iTerm2 + zsh + Oh My Zsh</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableHeadCell>Browser</TableHeadCell>
