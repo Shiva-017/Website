@@ -43,7 +43,7 @@ const projectsData = [
   { id: 'rideeasy', title: 'RideEasy', description: 'UI/UX design and prototyping for a carpooling app.', image: rideeasy, category: 'Apps & Design', tags: ['Figma', 'UI/UX', 'Mobile'], link: 'https://www.figma.com/proto/Z4KTFvaMru2J0L7lKyISjF/RideEasy' },
   { id: 'wequiz', title: 'WeQuiz', description: 'Location-based trivia app built with Flutter and Firebase.', image: page1, category: 'Apps & Design', tags: ['Flutter', 'Firebase', 'Mobile'], link: 'https://github.com/Shiva-017/WeQuiz' },
   { id: 'taskmaster', title: 'TaskMaster', description: 'JavaFX task management app with MVC architecture.', image: login, category: 'Apps & Design', tags: ['Java', 'JavaFX', 'MVC'], link: '/projects/slice' },
-  { id: 'kv-store', title: 'B+ Tree KV Store', description: 'High-performance key-value store focused on concurrency.', image: kvstore, category: 'Systems', tags: ['Python', 'B+ Tree', 'Concurrency'], link: 'https://github.com/Shiva-017/Go-VCS' },
+  { id: 'kv-store', title: 'B+ Tree KV Store', description: 'High-performance key-value store with B+ tree indexing and concurrent read/write support.', image: kvstore, category: 'Systems', tags: ['Python', 'B+ Tree', 'Concurrency'], link: 'https://github.com/Shiva-017/Go-VCS' },
 ];
 
 const PROJECT_CATEGORIES = ['All', 'AI & ML', 'Cloud & DevOps', 'Full Stack', 'Systems', 'Apps & Design'];
