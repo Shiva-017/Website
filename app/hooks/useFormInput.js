@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function useFormInput(initialValue = '') {
+export function useFormInput(initialValue = '', { trim = false } = {}) {
   const [value, setValue] = useState(initialValue);
   const [error, setError] = useState();
   const [isDirty, setIsDirty] = useState(false);
