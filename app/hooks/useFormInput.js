@@ -6,7 +6,7 @@ export function useFormInput(initialValue = '', { trim = false } = {}) {
   const [isDirty, setIsDirty] = useState(false);
 
   const handleChange = event => {
-    setValue(event.target.value);
+    setValue(trim ? event.target.value.trim() : event.target.value);
     setIsDirty(true);
 
     // Resolve errors as soon as input becomes valid
