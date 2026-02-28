@@ -33,7 +33,9 @@ const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
 export async function action({ context, request }) {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  myHeaders.set('Authorization', 'Basic ' + btoa('e411d98204597ae093036b34bf6a9ec8'+":" +'90bb147eeb810d40b7d45766861e149e'));
+  const mjKey = context.cloudflare.env.MAILJET_API_KEY || '';
+  const mjSecret = context.cloudflare.env.MAILJET_SECRET_KEY || '';
+  myHeaders.set('Authorization', 'Basic ' + btoa(mjKey + ':' + mjSecret));
   const formData = await request.formData();
   const isBot = String(formData.get('name'));
   const email = String(formData.get('email'));

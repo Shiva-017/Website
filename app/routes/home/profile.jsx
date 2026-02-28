@@ -21,11 +21,17 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="Hi there" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-    I’m Shiva Teja , pursuing a Master’s in Software Engineering Systems at Northeastern University. My work includes full-stack development, cloud computing, and UX design. I leverage my skills in Java, JavaScript, and Python to build and optimize applications. Check out my portfolio to see the tools I use.
-
+      I'm Shiva Teja — a Software Engineer with 3+ years of experience building
+      scalable distributed systems and production-grade AI integrations. I've delivered
+      10x performance improvements, 60% latency reductions, and deployed RAG chatbots
+      and MCP agents that serve thousands of users. I hold a Master's in Software
+      Engineering from Northeastern University.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-    In my free time, I explore tech trends, learn new programming languages, and work on innovative projects. Feel free to reach out if you want to discuss opportunities or collaborate!
+      My work spans high-throughput APIs, event-driven architectures (Kafka, SQS),
+      cloud infrastructure (AWS, GCP, Terraform), and AI agent systems (LangChain,
+      LangGraph, MCP). I care about building things that are fast, reliable, and
+      genuinely useful. Feel free to reach out if you want to collaborate!
     </Text>
   </Fragment>
 );
@@ -81,7 +87,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   width={960}
                   height={1280}
                   sizes={`(max-width: ${media.mobile}px) 100vw, 480px`}
-                  alt="Me smiling like a goofball at the Qwilr office in Sydney"
+                  alt="Shiva Teja Dasi"
                 />
                 <svg className={styles.svg} data-visible={visible} viewBox="0 0 136 766">
                   <use href={`${katakana}#katakana-profile`} />

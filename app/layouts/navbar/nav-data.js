@@ -9,10 +9,10 @@ export const navLinks = [
     label: 'Details',
     pathname: '/#details',
   },
-  // {
-  //   label: 'Articles',
-  //   pathname: '/articles',
-  // },
+  {
+    label: 'WebMCP',
+    pathname: '/webmcp',
+  },
   {
     label: 'Contact',
     pathname: '/contact',

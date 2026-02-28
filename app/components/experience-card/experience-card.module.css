@@ -1,0 +1,232 @@
+.wrapper {
+  perspective: 1000px;
+  width: 100%;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  min-height: 310px;
+  border-radius: 20px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card[data-hovering='true'] {
+  transition: transform 0.1s ease-out;
+}
+
+.card[data-flipped='true'] {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Edge glow */
+.edgeGlow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 21px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: conic-gradient(from var(--glow-angle, 0deg), transparent, color-mix(in srgb, var(--accent) 25%, transparent), transparent, color-mix(in srgb, var(--accent) 12%, transparent), transparent);
+  z-index: -1;
+}
+
+.edgeGlow[data-visible='true'] {
+  opacity: 1;
+}
+
+/* Glare overlay */
+.glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(255, 255, 255, var(--glare-opacity, 0)) 0%, transparent 60%);
+  z-index: 10;
+}
+
+/* Shared face styles */
+.front,
+.back {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.front {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.back {
+  padding: 24px;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+
+/* Grid pattern */
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+/* ─── Front Content ───────────────────────────────── */
+.frontContent {
+  position: relative;
+  z-index: 2;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.badge[data-current='true'] {
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 27%, transparent);
+  color: var(--accent);
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+.duration {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.company {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.role {
+  font-size: 14px;
+  color: var(--accent);
+  margin: 0 0 20px;
+  font-weight: 500;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--monoFontStack, monospace);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.flipHint {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  margin-top: 16px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── Back Content ────────────────────────────────── */
+.backContent {
+  position: relative;
+  z-index: 2;
+}
+
+.backHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.backTitle {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.backHint {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.highlightRow {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.highlightNum {
+  min-width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+  border: 1px solid;
+}
+
+.highlightText {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}
