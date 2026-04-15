@@ -36,8 +36,8 @@ const PORTFOLIO_DATA = {
   },
   experience: [
     { company: 'Rebecca Everlene Trust Company', role: 'Software Engineer', duration: 'Aug 2025 - Present', highlights: ['Reduced admin tickets 45% with RAG chatbot (LangChain + Pinecone)', 'Architected MCP agent with Claude and 6 tool servers at 94% resolution', 'Built AI recommendation engine with OpenAI embeddings + FAISS for 10K+ users'] },
-    { company: 'Cimpress / Vistaprint', role: 'Software Engineer', duration: 'Jan 2023 - Aug 2023', highlights: ['WebAssembly DPI validation + AI upscaling for 50K+ uploads/month', 'Enterprise onboarding from 3 weeks to 4 days with React/TS microfrontends', 'Boosted margins 12% with Node.js pricing + Kafka + Elasticsearch'] },
-    { company: 'The 10X Academy', role: 'Full Stack Developer', duration: 'Aug 2020 - Dec 2022', highlights: ['60% page load improvement migrating to Next.js SSR for 10M+ users', 'Go-based GraphQL gateway with goroutines + DataLoader', 'Event-driven architecture with Kafka + SQS', 'Reduced MTTR 60% with Datadog tracing across 20+ microservices'] },
+    { company: 'Cimpress / Vistaprint', role: 'Software Engineer', duration: 'Jan 2022 - Aug 2023', highlights: ['WebAssembly DPI validation + AI upscaling for 50K+ uploads/month', 'Enterprise onboarding from 3 weeks to 4 days with React/TS microfrontends', 'Boosted margins 12% with Node.js pricing + Kafka + Elasticsearch'] },
+    { company: 'The 10X Academy', role: 'Full Stack Developer', duration: 'Aug 2019 - Dec 2021', highlights: ['60% page load improvement migrating to Next.js SSR for 10M+ users', 'Go-based GraphQL gateway with goroutines + DataLoader', 'Event-driven architecture with Kafka + SQS', 'Reduced MTTR 60% with Datadog tracing across 20+ microservices'] },
   ],
   projects: [
     { id: 'sidekick', title: 'Sidekick - AI Indoor Navigation', description: 'Real-time indoor navigation for visually impaired using React Native + Gemini AI, 1-3m accuracy without GPS, voice-guided with TTS and WebSocket streaming.', tags: ['ai', 'react-native', 'gemini', 'accessibility', 'websocket'], type: 'ai', link: 'https://github.com/shivateja-ab/sidekick-brain' },
